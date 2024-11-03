@@ -12,6 +12,7 @@ from kivy.clock import Clock
 from functools import partial
 from utils import get_last_seven_days
 import kundalikcom_func
+import os
 
 Builder.load_file("Login.kv")
 Builder.load_file("Home.kv")
