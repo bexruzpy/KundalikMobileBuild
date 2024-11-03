@@ -1,0 +1,792 @@
+<ActivePopup>
+    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+    background_color: 0,0,0,0
+    autoauto_dismiss: False
+    BoxLayout:
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        width: root.width-30
+        orientation: "vertical"
+        size_hint: None, None
+        padding: [30,10,30,10]
+        size: min(self.size[0], 500 ), min(self.size[1]+30, 300)
+        pos: max(self.pos[0], root.width/2-250), max(self.pos[1], root.height/2-250)
+        canvas.before:
+            Color:
+                rgba: 0.854, 0.854, 0.854, 1
+            RoundedRectangle:
+                size: min(self.size[0], 500 ), min(self.size[1]+30, 300)
+                pos: max(self.pos[0], root.width/2-250), max(self.pos[1], root.height/2-250)
+                radius: [10]
+        Image:
+            source: "icons/buy.png"
+            size_hint_y: 5
+        Label:
+            id: title
+            text: "To'lov amalga oshirildi"
+            font_size: 26
+            height: 50
+            size_hint_y: None
+            canvas.before:
+                Color:
+                    rgba: 0.149, 0.0, 1.0, 0.42
+                RoundedRectangle:
+                    size: self.size[0], self.size[1]
+                    pos: self.pos[0], self.pos[1]
+                    radius: [15]
+        Label:
+        Button:
+            id: tugma
+            text: "Ok"
+            size_hint_x: 0.5
+            size_hint_y: None
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            on_release: root.dismiss()
+            background_color: 0,0,0,0
+            color: 0.0, 0.051, 0.373, 1
+            font_name: "fonts/OpenSans-Bold"
+            height: 50
+            font_name: "fonts/OpenSans-Bold"
+            canvas.before:
+                Color:
+                    rgba: 0.129, 0.114, 0.216, 0.53
+                RoundedRectangle:
+                    size: self.size[0]+4, self.size[1]
+                    pos: self.pos[0]-2, self.pos[1]
+                    radius: [15]
+
+<NoActivePopup>
+    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+    background_color: 0,0,0,0
+    autoauto_dismiss: False
+    BoxLayout:
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        width: root.width-30
+        orientation: "vertical"
+        size_hint: None, None
+        padding: [30,10,30,10]
+        size: min(self.size[0], 500 ), min(self.size[1]+30, 300)
+        pos: max(self.pos[0], root.width/2-250), max(self.pos[1], root.height/2-250)
+        canvas.before:
+            Color:
+                rgba: 0.854, 0.854, 0.854, 1
+            RoundedRectangle:
+                size: min(self.size[0], 500 ), min(self.size[1]+30, 300)
+                pos: max(self.pos[0], root.width/2-250), max(self.pos[1], root.height/2-250)
+                radius: [10]
+        Image:
+            source: "icons/nobuy.png"
+            size_hint_y: 5
+        Label:
+            id: title
+            text: "To'lov amalga oshirilmadi"
+            font_size: 26
+            height: 50
+            size_hint_y: None
+            canvas.before:
+                Color:
+                    rgba: 1.0, 0.149, 0.0, 0.42
+                RoundedRectangle:
+                    size: self.size[0], self.size[1]
+                    pos: self.pos[0], self.pos[1]
+                    radius: [15]
+        BoxLayout:
+            size_hint_y: 3
+            orientation: "horizontal"
+            Image:
+                source: "icons/nomoney.png"
+                size_hint_y: 1
+                size_hint_x: None
+            Label:
+                id: matn
+                size_hint_y: 1
+                text: "Mablag' yetarli emas"
+                font_size: 26
+                height: 50
+                color: 1,0.3,0,1
+                size_hint_y: 1
+        Label:
+        Button:
+            id: tugma
+            text: "Ok"
+            size_hint_x: 0.5
+            size_hint_y: None
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            on_release:
+                root.dismiss()
+            background_color: 0,0,0,0
+            color: 0.0, 0.051, 0.373, 1
+            font_name: "fonts/OpenSans-Bold"
+            height: 50
+            font_name: "fonts/OpenSans-Bold"
+            canvas.before:
+                Color:
+                    rgba: 0.129, 0.114, 0.216, 0.53
+                RoundedRectangle:
+                    size: self.size[0]+4, self.size[1]
+                    pos: self.pos[0]-2, self.pos[1]
+                    radius: [15]
+
+<MessagePopup>
+    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+    background_color: 0,0,0,0
+    autoauto_dismiss: True
+    BoxLayout:
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        width: root.width-30
+        orientation: "vertical"
+        size_hint: None, None
+        padding: [30,10,30,10]
+        size: min(self.size[0], 500 ), min(self.size[1]+30, 300)
+        pos: max(self.pos[0], root.width/2-250), max(self.pos[1], root.height/2-250)
+        canvas.before:
+            Color:
+                rgba: 0.854, 0.854, 0.854, 1
+            RoundedRectangle:
+                size: min(self.size[0], 500 ), min(self.size[1]+30, 300)
+                pos: max(self.pos[0], root.width/2-250), max(self.pos[1], root.height/2-250)
+                radius: [10]
+        Label:
+            id: title
+            text: "title"
+            font_size: 26
+            height: 50
+            size_hint_y: None
+            canvas.before:
+                Color:
+                    rgba: 0.149, 0.0, 1.0, 0.42
+                RoundedRectangle:
+                    size: self.size[0], self.size[1]
+                    pos: self.pos[0], self.pos[1]
+                    radius: [15]
+
+        Label:
+            id: text
+            text: "Xabar matni!"
+            font_size: 20
+            multiline: True
+            text_size: self.size
+            valign: "center"
+            color: 0.149, 0.0, 1.0, 1
+            font_name: "fonts/OpenSans-Light"
+
+        Button:
+            id: tugma
+            text: "yopish"
+            size_hint_x: 0.5
+            size_hint_y: None
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            on_release:
+                root.button_func()
+                root.dismiss()
+            background_color: 0,0,0,0
+            color: 0.0, 0.051, 0.373, 1
+            font_name: "fonts/OpenSans-Bold"
+            height: 50
+            font_name: "fonts/OpenSans-Bold"
+            canvas.before:
+                Color:
+                    rgba: 0.129, 0.114, 0.216, 0.53
+                RoundedRectangle:
+                    size: self.size[0]+4, self.size[1]
+                    pos: self.pos[0]-2, self.pos[1]
+                    radius: [15]
+
+<ErrorPopup>
+    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+    background_color: 0,0,0,0
+    autoauto_dismiss: False
+    BoxLayout:
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        width: root.width-30
+        orientation: "vertical"
+        size_hint: None, None
+        padding: [30,10,30,10]
+        size: min(self.size[0], 500 ), min(self.size[1]+30, 400)
+        pos: max(self.pos[0], root.width/2-250), max(self.pos[1], root.height/2-350)
+        canvas.before:
+            Color:
+                rgba: 0.854, 0.854, 0.854, 1
+            RoundedRectangle:
+                size: min(self.size[0], 500 ), min(self.size[1]+30, 400)
+                pos: max(self.pos[0], root.width/2-250), max(self.pos[1], root.height/2-400)
+                radius: [10]
+        Label:
+            id: title
+            text: "title"
+            font_size: 26
+            height: 50
+            size_hint_y: None
+            canvas.before:
+                Color:
+                    rgba: 1.0, 0.149, 0.0, 0.42
+                RoundedRectangle:
+                    size: self.size[0], self.size[1]
+                    pos: self.pos[0], self.pos[1]
+                    radius: [15]
+
+        Label:
+            id: text
+            text: "Xabar matni!"
+            font_size: 20
+            text_size: self.size
+            valign: "center"
+            size_hint: 1,1
+            color: 1,0.5,0,1
+            color: 0.149, 0.0, 1.0, 1
+            font_name: "fonts/OpenSans-Light"
+
+        Button:
+            id: tugma
+            text: "yopish"
+            size_hint_x: 0.5
+            size_hint_y: None
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            on_release:
+                root.button_func()
+                root.dismiss()
+            background_color: 0,0,0,0
+            color: 0.0, 0.051, 0.373, 1
+            font_name: "fonts/OpenSans-Bold"
+            height: 50
+            font_name: "fonts/OpenSans-Bold"
+            canvas.before:
+                Color:
+                    rgba: 0.129, 0.114, 0.216, 0.53
+                RoundedRectangle:
+                    size: self.size[0]+4, self.size[1]
+                    pos: self.pos[0]-2, self.pos[1]
+                    radius: [15]
+
+
+<DatasLoginContent1>:
+    orientation: 'horizontal'
+    size_hint: 1, None
+    height: 100
+    space: 10
+    canvas.before:
+        Color:
+            rgba: 0.7588, 0.7137, 0.9961, 1.0
+        Rectangle:
+            pos: self.pos
+            size: self.size[0]+15, self.size[1]
+    BoxLayout:
+        orientation: "vertical"
+        size_hint: 1, 1
+        padding: [10, 10, 0, 5]
+        Label:
+            id: name
+            text: "O'quvchi 1"
+            color: 0.0000, 0.0510, 0.3725, 0.6
+            font_size: 28
+            size_hint: 1, 2
+            font_name: "fonts/OpenSans-Bold"
+            text_size: self.size
+            valign: "bottom"
+        Label:
+            id: mall
+            text: "login: user_1\nparol: parol_1"
+            color: 0.2863, 0.2706, 0.2706, 1
+            size_hint: 1, 3
+            font_size: 16
+            font_name: "fonts/OpenSans-Light"
+            text_size: self.size
+            valign: "center"
+    Button:
+        id: edit_button
+        size_hint: None, 1
+        width: 50
+        height: 50
+        color: 0, 1, 0, 1.0
+        background_color: 0,0,0,0
+        font_size: 24
+        on_release: root.edit_func()
+        Image:
+            source: "icons/edit.png"
+            size_hint: None, 1
+            size: 40, 40
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y+3
+
+
+<DatasLoginContent2>:
+    orientation: 'horizontal'
+    size_hint: 1, None
+    height: 100
+    space: 10
+    canvas.before:
+        Color:
+            rgba: 0.9647, 0.9608, 1.0000, 1.0
+        Rectangle:
+            pos: self.pos
+            size: self.size[0]+15, self.size[1]
+    BoxLayout:
+        orientation: "vertical"
+        size_hint: 1, 1
+        padding: [10, 10, 0, 5]
+        Label:
+            id: name
+            text: "O'quvchi 1"
+            color: 0.0000, 0.0510, 0.3725, 0.6
+            font_size: 28
+            size_hint: 1, 2
+            font_name: "fonts/OpenSans-Bold"
+            text_size: self.size
+            valign: "bottom"
+        Label:
+            id: mall
+            text: "login: user_1\nparol: parol_1"
+            color: 0.2863, 0.2706, 0.2706, 1
+            size_hint: 1, 3
+            font_size: 16
+            font_name: "fonts/OpenSans-Light"
+            text_size: self.size
+            valign: "center"
+    Button:
+        id: edit_button
+        size_hint: None, 1
+        width: 50
+        height: 50
+        color: 0, 1, 0, 1.0
+        background_color: 0,0,0,0
+        font_size: 24
+        on_release: root.edit_func()
+        Image:
+            source: "icons/edit.png"
+            size_hint: None, 1
+            size: 40, 40
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y+3
+
+<HomeContent1>
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: 1, None
+        height: 150
+        space: 10
+        canvas.before:
+            Color:
+                rgba: 0.4118, 0.6039, 0.8941, 0.43
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+            id: sana_foiz
+            text: "100%"
+            size_hint: None, 1
+            width: 200
+            color: 0, 1, 0, 1.0
+            font_size: 36
+            font_name: "fonts/OpenSans-Bold"
+            canvas.before:
+                Color:
+                    rgba: 0.2706, 0.2824, 0.3373, 0.5
+                RoundedRectangle:
+                    pos: self.pos[0]+15,self.pos[1]+25
+                    size: self.size[0]-30,self.size[1]-50
+                    radius: [20]
+
+        BoxLayout:
+            size_hint: 1, 1
+            orientation: 'vertical'
+            Label:
+                id: sana
+                text: "Bugun"
+                color: 0.2706, 0.2824, 0.3373, 1.0
+                font_size: 36
+                size_hint: 1, 2
+                font_name: "fonts/OpenSans-Bold"
+                text_size: self.size
+                valign: "bottom"
+            Label:
+                id: sana_data
+                text: "Jami: 100 ta hisob\nKirilgan: 100 ta hisob\nXato login yoki parol: 0 ta"
+                color: 0.2, 0.2, 0.3, 0.9
+                size_hint: 1, 3
+                font_size: 16
+                font_name: "fonts/OpenSans-Bold"
+                text_size: self.size
+                valign: "top"
+
+<HomeContent2>
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: 1, None
+        height: 150
+        canvas.before:
+            Color:
+                rgba: 0.4118, 0.6039, 0.8941, 0.59
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+            id: sana_foiz
+            text: "100%"
+            size_hint: None, 1
+            width: 200
+            color: 0, 1, 0, 1.0
+            font_size: 36
+            font_name: "fonts/OpenSans-Bold"
+            canvas.before:
+                Color:
+                    rgba: 0.2706, 0.2824, 0.3373, 0.5
+                RoundedRectangle:
+                    pos: self.pos[0]+15,self.pos[1]+25
+                    size: self.size[0]-30,self.size[1]-50
+                    radius: [20]
+
+        BoxLayout:
+            size_hint: 1, 1
+            orientation: 'vertical'
+            Label:
+                id: sana
+                text: "Kecha"
+                color: 0.2706, 0.2824, 0.3373, 1.0
+                font_size: 36
+                size_hint: 1, 2
+                font_name: "fonts/OpenSans-Bold"
+                text_size: self.size
+                valign: "bottom"
+            Label:
+                id: sana_data
+                text: "Jami: 100 ta hisob\nKirilgan: 100 ta hisob\nXato login yoki parol: 0 ta"
+                color: 0.2, 0.2, 0.3, 0.9
+                size_hint: 1, 3
+                font_size: 16
+                font_name: "fonts/OpenSans-Bold"
+                text_size: self.size
+                valign: "top"
+                
+            
+<AddPopup>
+    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+    background_color: 0,0,0,0
+    autoauto_dismiss: False
+    BoxLayout:
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        width: root.width-30
+        orientation: "vertical"
+        size_hint: None, None
+        padding: [30,0,30,30]
+        size: min(self.size[0], 500 ), min(self.size[1]+30, 500)
+        pos: max(self.pos[0], root.width/2-250), max(self.pos[1], root.height/2-450)
+        canvas.before:
+            Color:
+                rgba: 0.854, 0.854, 0.854, 1
+            RoundedRectangle:
+                size: min(self.size[0], 500 ), min(self.size[1]+30, 500)
+                pos: max(self.pos[0], root.width/2-250), max(self.pos[1], root.height/2-450)
+                radius: [10]
+        Label:
+            id: title
+            text: "Qo'shish"
+            font_size: 26
+            height: 50
+            size_hint: None, None
+            halign: "center"
+            valign: "center"
+            font_name: "fonts/OpenSans-Bold"
+            width: 240
+            pos: self.parent.pos[0]+self.parent.width-240, self.pos[1]
+            canvas.before:
+                Color:
+                    rgba: 0.149, 0.0, 1.0, 0.42
+                RoundedRectangle:
+                    size: self.size[0], self.size[1]
+                    pos: self.pos[0], self.pos[1]
+                    radius: [0, 10, 0, 30]
+        Label:
+        TextInput:
+            id: name
+            size_hint_y: None
+            height: 50
+            hint_text: "Ism familiya"
+            font_size: '18sp'
+            multiline: False
+            font_name: "fonts/OpenSans-Regular"
+            background_normal: ''
+            background_color: 0, 0, 0, 0  # Bu erda fon shaffofligi yo'q
+            padding: [10, 5]
+            foreground_color: 0, 0, 0, 0.9
+            color: 1, 1, 1, 1
+            padding: [15, 10, 15, 10]
+            canvas.after:
+                Color:
+                    rgba: 0.149, 0, 1, 0.3
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [10]  # Chegara radiusi
+        Label:
+        TextInput:
+            id: login
+            size_hint_y: None
+            height: 50
+            hint_text: "Login"
+            font_size: '18sp'
+            multiline: False
+            font_name: "fonts/OpenSans-Regular"
+            background_normal: ''
+            background_color: 0, 0, 0, 0  # Bu erda fon shaffofligi yo'q
+            padding: [10, 5]
+            foreground_color: 0, 0, 0, 0.9
+            color: 1, 1, 1, 1
+            padding: [15, 10, 15, 10]
+            canvas.after:
+                Color:
+                    rgba: 0.149, 0, 1, 0.3
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [10]  # Chegara radiusi
+        Label:
+        TextInput:
+            id: password
+            size_hint_y: None
+            height: 50
+            hint_text: "Parol"
+            font_size: '18sp'
+            multiline: False
+            font_name: "fonts/OpenSans-Regular"
+            background_normal: ''
+            background_color: 0, 0, 0, 0  # Bu erda fon shaffofligi yo'q
+            padding: [10, 5]
+            foreground_color: 0, 0, 0, 0.9
+            color: 1, 1, 1, 1
+            padding: [15, 10, 15, 10]
+            canvas.after:
+                Color:
+                    rgba: 0.149, 0, 1, 0.3
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [10]  # Chegara radiusi
+        Label:
+        BoxLayout:
+            orientation: "horizontal"
+            space: 20
+            Button:
+                id: tugma
+                text: "Tekshirish"
+                size_hint_x: 0.5
+                size_hint_y: None
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                on_release: root.tekshirish()
+                background_color: 0,0,0,0
+                color: 0.0, 0.051, 0.373, 1
+                font_name: "fonts/OpenSans-Bold"
+                height: 50
+                font_name: "fonts/OpenSans-Bold"
+                canvas.before:
+                    Color:
+                        rgba: 0.129, 0.114, 0.216, 0.1
+                    RoundedRectangle:
+                        size: self.size[0]+4, self.size[1]
+                        pos: self.pos[0]-2, self.pos[1]
+                        radius: [15]
+            Label:
+                size_hint_x: None
+                width: 20
+            Button:
+                text: "Qo'shish"
+                size_hint_x: 0.5
+                size_hint_y: None
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                on_release: root.add_func()
+                background_color: 0,0,0,0
+                color: 1, 1, 1, 1
+                height: 50
+                font_name: "fonts/OpenSans-Bold"
+                canvas.before:
+                    Color:
+                        rgba: 0.129, 0.114, 0.216, 1
+                    RoundedRectangle:
+                        size: self.size[0]+10, self.size[1]+10
+                        pos: self.pos[0]-5, self.pos[1]-5
+                        radius: [20]
+        Label:
+        Button:
+            text: "bekor qilish"
+            size_hint_x: 0.5
+            size_hint_y: None
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            on_release:
+                root.dismiss()
+            background_color: 0,0,0,0
+            color: 0.0, 0.051, 0.373, 1
+            font_name: "fonts/OpenSans-Bold"
+            height: 50
+            font_name: "fonts/OpenSans-Bold"
+            canvas.before:
+                Color:
+                    rgba: 0.129, 0.114, 0.216, 0.53
+                RoundedRectangle:
+                    size: self.size[0]+4, self.size[1]
+                    pos: self.pos[0]-2, self.pos[1]
+                    radius: [15]
+<EditPopup>
+    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+    background_color: 0,0,0,0
+    autoauto_dismiss: False
+    BoxLayout:
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        width: root.width-30
+        orientation: "vertical"
+        size_hint: None, None
+        padding: [30,0,30,30]
+        size: min(self.size[0], 500 ), min(self.size[1]+30, 500)
+        pos: max(self.pos[0], root.width/2-250), max(self.pos[1], root.height/2-450)
+        canvas.before:
+            Color:
+                rgba: 0.854, 0.854, 0.854, 1
+            RoundedRectangle:
+                size: min(self.size[0], 500 ), min(self.size[1]+30, 500)
+                pos: max(self.pos[0], root.width/2-250), max(self.pos[1], root.height/2-450)
+                radius: [10]
+        Label:
+            id: title
+            text: "Taxrirlash"
+            font_size: 26
+            height: 50
+            size_hint: None, None
+            halign: "center"
+            valign: "center"
+            font_name: "fonts/OpenSans-Bold"
+            width: 240
+            pos: self.parent.pos[0]+self.parent.width-240, self.pos[1]
+            canvas.before:
+                Color:
+                    rgba: 0.149, 0.0, 1.0, 0.42
+                RoundedRectangle:
+                    size: self.size[0], self.size[1]
+                    pos: self.pos[0], self.pos[1]
+                    radius: [0, 10, 0, 30]
+        Label:
+        TextInput:
+            id: name
+            size_hint_y: None
+            height: 50
+            hint_text: "Ism familiya"
+            font_size: '18sp'
+            font_name: "fonts/OpenSans-Regular"
+            multiline: False
+            background_normal: ''
+            background_color: 0, 0, 0, 0  # Bu erda fon shaffofligi yo'q
+            foreground_color: 0, 0, 0, 0.9
+            color: 1, 1, 1, 1
+            padding: [15, 10, 15, 10]
+            canvas.after:
+                Color:
+                    rgba: 0.149, 0, 1, 0.3
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [10]  # Chegara radiusi
+        Label:
+        TextInput:
+            id: login
+            size_hint_y: None
+            height: 50
+            hint_text: "Login"
+            readonly: True 
+            font_size: '18sp'
+            font_name: "fonts/OpenSans-Regular"
+            multiline: False
+            background_normal: ''
+            background_color: 0, 0, 0, 0  # Bu erda fon shaffofligi yo'q
+            foreground_color: 0, 0, 0, 0.9
+            color: 1, 1, 1, 1
+            padding: [15, 10, 15, 10]
+            canvas.after:
+                Color:
+                    rgba: 0.149, 0, 1, 0.1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [10]  # Chegara radiusi
+        Label:
+        TextInput:
+            id: password
+            size_hint_y: None
+            height: 50
+            hint_text: "Parol"
+            font_size: '18sp'
+            font_name: "fonts/OpenSans-Regular"
+            multiline: False
+            background_normal: ''
+            background_color: 0, 0, 0, 0  # Bu erda fon shaffofligi yo'q
+            padding: [10, 5]
+            foreground_color: 0, 0, 0, 0.9
+            color: 1, 1, 1, 1
+            padding: [15, 10, 15, 10]
+            canvas.after:
+                Color:
+                    rgba: 0.149, 0, 1, 0.3
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [10]  # Chegara radiusi
+        Label:
+        BoxLayout:
+            orientation: "horizontal"
+            space: 20
+            Button:
+                id: tugma
+                text: "O'chirish"
+                size_hint_x: 0.5
+                size_hint_y: None
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                on_release: root.del_func()
+                background_color: 0,0,0,0
+                color: 0.0, 0.051, 0.373, 1
+                font_name: "fonts/OpenSans-Bold"
+                height: 50
+                font_name: "fonts/OpenSans-Bold"
+                canvas.before:
+                    Color:
+                        rgba: 0.7, 0.0, 0.051, 0.5
+                    RoundedRectangle:
+                        size: self.size[0]+4, self.size[1]
+                        pos: self.pos[0]-2, self.pos[1]
+                        radius: [15]
+            Label:
+                size_hint_x: None
+                width: 20
+            Button:
+                id: tugma
+                text: "Saqlash"
+                size_hint_x: 0.5
+                size_hint_y: None
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                on_release: root.save_func()
+                background_color: 0,0,0,0
+                color: 1, 1, 1, 1
+                height: 50
+                font_name: "fonts/OpenSans-Bold"
+                canvas.before:
+                    Color:
+                        rgba: 0.129, 0.114, 0.216, 1
+                    RoundedRectangle:
+                        size: self.size[0]+10, self.size[1]+10
+                        pos: self.pos[0]-5, self.pos[1]-5
+                        radius: [20]
+        Label:
+        Button:
+            id: tugma
+            text: "bekor qilish"
+            size_hint_x: 0.5
+            size_hint_y: None
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            on_release: root.dismiss()
+            background_color: 0,0,0,0
+            color: 0.0, 0.051, 0.373, 1
+            font_name: "fonts/OpenSans-Bold"
+            height: 50
+            font_name: "fonts/OpenSans-Bold"
+            canvas.before:
+                Color:
+                    rgba: 0.129, 0.114, 0.216, 0.53
+                RoundedRectangle:
+                    size: self.size[0]+4, self.size[1]
+                    pos: self.pos[0]-2, self.pos[1]
+                    radius: [15]
+

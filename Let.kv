@@ -1,0 +1,548 @@
+
+
+<LetsenziyaScreen>
+    BoxLayout:
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        orientation: 'vertical'
+        size_hint: 1, 1
+
+        canvas.before:
+            Color:
+                rgba: 0.851, 0.851, 0.851, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: 1, None
+            height: 100
+            padding: [20,10,20,5]
+
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint: 1, 1
+                canvas.before:
+                    Color:
+                        rgba: 1, 1, 1, 0.45
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [20]
+                    Color:
+                        rgba: 0, 0.051, 0.373, 0.53
+                    Line:
+                        rounded_rectangle: (*self.pos, self.width, self.height, 20)
+                        width: 1
+                Image:
+                    pos_hint: {'center_y': 0.5}
+                    source: 'icons/profile.png'
+                    size_hint: None, 1
+                    size: 80, 80
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint: 1, 1
+                    space: 0
+                    Label:
+                        id: fullname
+                        text: "Ism familiya"
+                        font_size: '20sp'
+                        size_hint_y: 5
+                        height: self.texture_size[1]
+                        halign: "left"
+                        text_size: self.size
+                        font_name: "fonts/OpenSans-Bold"
+                        padding: [20, 5, 5, 5]
+
+                        canvas.before:
+                            Color:
+                                rgba: 0.149, 0, 1, 0.42  # Background color
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [0, 20, 0, 20]
+                    Label:
+                        text: "Letsenziya tugash vaqti:"
+                        font_size: '12sp'
+                        size_hint_y: 2
+                        height: self.texture_size[1]
+                        halign: "left"
+                        text_size: self.size[0], 30
+                        font_name: "fonts/OpenSans-Bold"
+                        color: 0, 0.231, 0.435, 1
+                    Label:
+                        id: letsenziya_label
+                        text: "01.01.2025y"
+                        font_size: '12sp'
+                        size_hint_y: 2
+                        height: self.texture_size[1]
+                        halign: "left"
+                        text_size: self.size[0], 30
+                        font_name: "fonts/OpenSans-Bold"
+                        color: 0, 0.231, 0.435,1 
+                    Label:
+                        text: ""
+                        font_size: '12sp'
+                        size_hint_y: 1
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: 1, 1
+            ScrollView:
+                size_hint: 1, 1
+                do_scroll_x: False
+                do_scroll_y: True
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: 585
+                    # Balansni ko'rsatish qismi
+                    BoxLayout:
+                        size_hint: 1, None
+                        height: 50
+                        orientation: "horizontal"
+                        padding: [10, 0, 10, 0]
+                        Label:
+                            text: "Balance:"
+                            size_hint: None, 1
+                            width: 70
+                            background_color: 0,0,0,0
+                            color: 0.4667, 0.2392, 0.7922, 1.0
+                            font_name: "fonts/OpenSans-Bold"
+                            font_size: 14
+                    
+                        Label:
+                            id: balance_label
+                            text: "0 so'm"
+                            size_hint: 1, 1
+                            background_color: 0,0,0,0
+                            font_name: "fonts/OpenSans-Bold"
+                            font_size: 14
+                            color: 1, 1, 1, 1.0
+                            canvas.before:
+                                Color:
+                                    rgba: 0.1490, 0.0000, 1.0000, 0.2
+                                RoundedRectangle:
+                                    pos: self.pos[0]+5, self.pos[1]+5
+                                    size: self.size[0]-10, self.size[1]-10
+                                    radius: [18]
+                        Button:
+                            text: "To'dirish"
+                            size_hint: None, 1
+                            width: 90
+                            background_color: 0,0,0,0
+                            color: 0, 0, 1, 1.0
+                            font_name: "fonts/OpenSans-Bold"
+                            font_size: 16
+                            on_release:
+                                import webbrowser
+                                from random import randint
+                                from functools import partial
+                                users = ["https://t.me/KundalikCom_avto_login1", "https://t.me/KundalikCom_avto_login2"]
+                                app.show_message("Hisobni to'ldirish", f"Administratorga telegram manzilga miqdor va usernamingizni yuboring!\n\nUsername: {app.database.get_data('username')}", "Bog'lansh",partial(webbrowser.open,f"{users[randint(0,1)]}"))
+                            canvas.before:
+                                Color:
+                                    rgba: 0, 1.0, 0.4157, 1
+                                RoundedRectangle:
+                                    pos: self.pos
+                                    size: self.size
+                                    radius: [20]
+                    Label:
+                        height: 15
+                        size_hint_y: None
+                    # Oylik sotib olish card
+                    BoxLayout:
+                        orientation:'vertical'
+                        size_hint: None, None
+                        width: min(self.parent.width-30, 500)
+                        height: 250
+                        pos_hint: {"center_x": 0.5}
+                        canvas.before:
+                            Color:
+                                rgba: 0, 0.05098, 0.37255, 0.53
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [25]
+                        BoxLayout:
+                            orientation:'horizontal'
+                            size_hint_y: None
+                            height: 50
+                            Label:
+                                text: 'OY'
+                                halign: "center"
+                                font_size: 30
+                                font_name: "fonts/OpenSans-ExtraBold"
+                                padding: [0,30,0,0]
+                            Label:
+                                id: oylik_label
+                                font_size: 12
+                                size_hint_x: 2
+                                halign: "center"
+                                text:'oylik_label: 1 oy 15,000 so’m\n3 yoki 3+ oy -20% chegirma'
+                                size: self.size[0], self.size[1]
+                                canvas.before:
+                                    Color:
+                                        rgba: 0, 0.05098, 0.37255, 0.53
+                                    RoundedRectangle:
+                                        pos: self.pos
+                                        size: self.size
+                                        radius: [0, 25, 0, 25]
+                        Label:
+                            height: 15
+                            size_hint_y: None
+                        # Narx sozlash qismi
+                        BoxLayout:
+                            size_hint_y: None
+                            orientation:'horizontal'
+                            padding: [30, 10]
+                            height: 70
+                            Button:
+                                id: add_oy_button
+                                text: "-"
+                                font_size: 35
+                                width: 70
+                                color: 0.6471, 1.0, 0.7922, 1
+                                background_color: 0,0,0,0
+                                size_hint_x: None
+                                canvas.before:
+                                    Color:
+                                        rgba: 00, 0.05098, 0.37255, 0.71
+                                    RoundedRectangle:
+                                        pos: self.pos
+                                        size: self.size
+                                        radius: [15]
+                                on_release:
+                                    from kivy.clock import Clock
+                                    Clock.schedule_once(lambda dt: app.root.LetsenziyaPage.oy_rm())
+                            Label:
+                                width: 5
+                                size_hint_x: None
+                            Label:
+                                id: oy_input
+                                width: 15
+                                font_size: 20
+                                text: "0 oy"
+                                color: 0, 0.4745, 0.1961, 1
+                                font_name: "fonts/OpenSans-Bold"
+                                canvas.before:
+                                    Color:
+                                        rgba: 0.8549, 0.8549, 0.8549, 1
+                                    RoundedRectangle:
+                                        pos: self.pos
+                                        size: self.size
+                                        radius: [15]
+                            Label:
+                                width: 5
+                                size_hint_x: None
+                            Button:
+                                id: add_oy_button
+                                text: "+"
+                                font_size: 30
+                                width: 70
+                                color: 0.6471, 1.0, 0.7922, 1
+                                background_color: 0,0,0,0
+                                size_hint_x: None
+                                canvas.before:
+                                    Color:
+                                        rgba: 00, 0.05098, 0.37255, 0.71
+                                    RoundedRectangle:
+                                        pos: self.pos
+                                        size: self.size
+                                        radius: [15]
+                                on_release:
+                                    from kivy.clock import Clock
+                                    Clock.schedule_once(lambda dt: app.root.LetsenziyaPage.oy_add())
+                        Label:
+                        Label:
+                            id: oy_all_price
+                            text: "Jami: 0 so'm"
+                            font_size: 18
+                            font_name: "fonts/OpenSans-Bold"
+                        Label:
+                        # Sotib olish Tugmasi
+                        BoxLayout:
+                            size_hint_y: None
+                            orientation:'horizontal'
+                            padding: [15, 10]
+                            height: 70
+                            Label:
+                                size_hint_y: 2
+                            Button:
+                                id: add_oy_button
+                                text: "Sotib olish"
+                                size_hint_y: None
+                                font_size: 26
+                                height: 60
+                                background_color: 0,0,0,0
+                                font_name: "fonts/OpenSans-Bold"
+                                size_hint_x: 3
+                                canvas.before:
+                                    Color:
+                                        rgba: 0, 1.0, 0.4157, 0.61
+                                    RoundedRectangle:
+                                        pos: self.pos
+                                        size: self.size
+                                        radius: [25]
+                                on_release:
+                                    from kivy.clock import Clock
+                                    Clock.schedule_once(lambda dt: app.root.LetsenziyaPage.oy_buy())
+                    Label:
+                        height: 20
+                        size_hint_y: None
+                    # Yillik sotib olish card
+                    BoxLayout:
+                        orientation: 'vertical'
+                        size_hint: None, None
+                        width: min(self.parent.width - 30, 500)
+                        height: 250
+                        pos_hint: {"center_x": 0.5}
+                        canvas.before:
+                            Color:
+                                rgba: 0, 0.05098, 0.37255, 0.53
+                            RoundedRectangle:
+                                pos: self.pos
+                                size: self.size
+                                radius: [25]
+                        BoxLayout:
+                            orientation: 'horizontal'
+                            size_hint_y: None
+                            height: 50
+                            Label:
+                                text: 'YIL'  # "OY" o'rniga "YIL"
+                                halign: "center"
+                                font_size: 30
+                                font_name: "fonts/OpenSans-ExtraBold"
+                                padding: [0, 30, 0, 0]
+                            Label:
+                                id: yillik_label  # "oylik_label" o'rniga "yillik_label"
+                                font_size: 12
+                                size_hint_x: 2
+                                halign: "center"
+                                text: 'yillik_label: 1 yil 180,000 so’m\n3 yoki 3+ yil -20% chegirma'  # "1 oy 15,000 so’m" o'rniga "1 yil 180,000 so’m"
+                                size: self.size[0], self.size[1]
+                                canvas.before:
+                                    Color:
+                                        rgba: 0, 0.05098, 0.37255, 0.53
+                                    RoundedRectangle:
+                                        pos: self.pos
+                                        size: self.size
+                                        radius: [0, 25, 0, 25]
+                        Label:
+                            height: 15
+                            size_hint_y: None
+                        # Narx sozlash qismi
+                        BoxLayout:
+                            size_hint_y: None
+                            orientation: 'horizontal'
+                            padding: [30, 10]
+                            height: 70
+                            Button:
+                                id: add_yil_button  # "add_oy_button" o'rniga "add_yil_button"
+                                text: "-"
+                                font_size: 35
+                                width: 70
+                                color: 0.6471, 1.0, 0.7922, 1
+                                background_color: 0, 0, 0, 0
+                                size_hint_x: None
+                                canvas.before:
+                                    Color:
+                                        rgba: 0, 0.05098, 0.37255, 0.71
+                                    RoundedRectangle:
+                                        pos: self.pos
+                                        size: self.size
+                                        radius: [15]
+                                on_release:
+                                    from kivy.clock import Clock
+                                    Clock.schedule_once(lambda dt: app.root.LetsenziyaPage.yil_rm())
+                            Label:
+                                width: 5
+                                size_hint_x: None
+                            Label:
+                                id: yil_input  # "oy_input" o'rniga "yil_input"
+                                width: 15
+                                font_size: 20
+                                text: "0 yil"  # "0 oy" o'rniga "0 yil"
+                                color: 0, 0.4745, 0.1961, 1
+                                font_name: "fonts/OpenSans-Bold"
+                                canvas.before:
+                                    Color:
+                                        rgba: 0.8549, 0.8549, 0.8549, 1
+                                    RoundedRectangle:
+                                        pos: self.pos
+                                        size: self.size
+                                        radius: [15]
+                            Label:
+                                width: 5
+                                size_hint_x: None
+                            Button:
+                                id: add_yil_button  # "add_oy_button" o'rniga "add_yil_button"
+                                text: "+"
+                                font_size: 30
+                                width: 70
+                                color: 0.6471, 1.0, 0.7922, 1
+                                background_color: 0, 0, 0, 0
+                                size_hint_x: None
+                                canvas.before:
+                                    Color:
+                                        rgba: 0, 0.05098, 0.37255, 0.71
+                                    RoundedRectangle:
+                                        pos: self.pos
+                                        size: self.size
+                                        radius: [15]
+                                on_release:
+                                    from kivy.clock import Clock
+                                    Clock.schedule_once(lambda dt: app.root.LetsenziyaPage.yil_add())
+                        Label:
+                        Label:
+                            id: yil_all_price
+                            text: "Jami: 0 so'm"
+                            font_size: 18
+                            font_name: "fonts/OpenSans-Bold"
+                        Label:
+                        # Sotib olish Tugmasi
+                        BoxLayout:
+                            size_hint_y: None
+                            orientation: 'horizontal'
+                            padding: [15, 10]
+                            height: 70
+                            Label:
+                                size_hint_y: 2
+                            Button:
+                                id: buyurtma_yil_button  # "add_oy_button" o'rniga "buyurtma_yil_button"
+                                text: "Sotib olish"
+                                size_hint_y: None
+                                font_size: 26
+                                height: 60
+                                background_color: 0, 0, 0, 0
+                                font_name: "fonts/OpenSans-Bold"
+                                size_hint_x: 3
+                                canvas.before:
+                                    Color:
+                                        rgba: 0, 1.0, 0.4157, 0.61
+                                    RoundedRectangle:
+                                        pos: self.pos
+                                        size: self.size
+                                        radius: [25]
+                                on_release:
+                                    from kivy.clock import Clock
+                                    Clock.schedule_once(lambda dt: app.root.LetsenziyaPage.yil_buy())
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: 1, None
+            height: 100
+            padding: [5, 5, 5, 10]
+            canvas.before:
+                Color:
+                    rgba: 0.424, 0.518, 0.898, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: 1, 1
+                canvas.before:
+                    Color:
+                        rgba: 0, 1, 1, 0
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [20]
+                Button:
+                    size_hint: 1, 1
+                    background_color: 0,0,0,0
+                    on_press:
+                        root.manager.transition.direction = 'right'
+                        root.manager.current = 'home'
+                    Image:
+                        source: 'icons/home.png'
+                        size_hint: None, 1
+                        size: 50, 50
+                        center_x: self.parent.center_x
+                        center_y: self.parent.center_y+10
+                    Label:
+                        text: "Bosh sahifa"
+                        center_x: self.parent.center_x
+                        center_y: self.parent.center_y-30
+                        color: 0,0,0,1
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: 1, 1
+                canvas.before:
+                    Color:
+                        rgba: 0, 1, 1, 0
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [20]
+                Button:
+                    size_hint: 1, 1
+                    background_color: 0,0,0,0
+                    on_press:
+                        from kivy.clock import Clock
+                        Clock.schedule_once(lambda dt: root.manager.DatasPage.get_datas())
+                        root.manager.transition.direction = 'right'
+                        root.manager.current = 'datas'
+                    Image:
+                        source: 'icons/mall.png'
+                        size_hint: None, 1
+                        size: 50, 50
+                        center_x: self.parent.center_x
+                        center_y: self.parent.center_y+10
+                    Label:
+                        text: "Ma'lumotlar"
+                        center_x: self.parent.center_x
+                        center_y: self.parent.center_y-30
+                        color: 0,0,0,1
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint: 1, 1
+                canvas.before:
+                    Color:
+                        rgba: 0, 1, 1, 1
+                    RoundedRectangle:
+                        pos: self.pos
+                        size: self.size
+                        radius: [20]
+                Button:
+                    size_hint: 1, 1
+                    background_color: 0,0,0,0
+                    on_release:
+                        app.data_population()
+                        # app.database.set_datas(app.root.LoginPage.get_full_data(app.database.get_data("token")))
+                    Image:
+                        source: 'icons/let.png'
+                        size_hint: None, 1
+                        size: 50, 50
+                        center_x: self.parent.center_x
+                        center_y: self.parent.center_y+10
+                    Label:
+                        text: "Letsenziya"
+                        center_x: self.parent.center_x
+                        center_y: self.parent.center_y-30
+                        color: 0,0,0,1
+    Button:
+        text: "CHIQISH"
+        size_hint: None, None
+        font_size: '12sp'
+        font_name: 'fonts/OpenSans-Bold'
+        size: 100, 40  # Tugmaning kengligi va balandligi
+        width: 100
+        height: 40
+        # pos_hint: {'center_x': 0.5, 'right': 1}
+        y: self.parent.height - 30 - self.height
+        x: self.parent.width - 40 - self.width
+        background_color: 0,0,0,0
+        pos: 0,0
+        color: 1,1,1,1
+        on_release: root.manager.LoginPage.logout()
+        canvas.before:
+            Color:
+                rgba: 1, 0, 0, 1
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [10]
