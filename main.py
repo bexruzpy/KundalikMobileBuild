@@ -14,6 +14,8 @@ from utils import get_last_seven_days
 import kundalikcom_func
 import os
 from android.permissions import request_permissions, Permission
+request_permissions([Permission.WRITE_EXTERNAL_STORAGE, Permission.READ_EXTERNAL_STORAGE])
+
 Builder.load_file("Login.kv")
 Builder.load_file("Home.kv")
 Builder.load_file("Datas.kv")
@@ -442,7 +444,6 @@ class RootWidget(ScreenManager):
 
 class KundalikCOMApp(App):
     def build(self):
-        request_permissions([Permission.WRITE_EXTERNAL_STORAGE, Permission.READ_EXTERNAL_STORAGE])
         self.database = DatabaseConnection()
         token = self.database.get_data("token")
         if token:
