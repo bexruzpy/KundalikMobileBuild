@@ -6,6 +6,9 @@ from kivy.uix.popup import Popup
 from kivy.graphics import Color, RoundedRectangle
 from kivy.lang import Builder
 
+from kivy.utils import platform
+from android.permissions import request_permissions, Permission
+
 
 # from jnius import autoclass
 
@@ -33,7 +36,7 @@ from assets.database import DatabaseConnection
 import requests
 from datetime import datetime
 from threading import Thread
-from kivy.clock import Clock
+# from kivy.clock import Clock
 from functools import partial
 from assets.utils import get_last_seven_days
 from assets import kundalikcom_func
@@ -468,6 +471,8 @@ class RootWidget(ScreenManager):
 
 class KundalikCOMApp(App):
     def build(self):
+        if platform == 'android':
+            request_permissions([Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE])
         self.database = DatabaseConnection()
         token = self.database.get_data("token")
         if token:
