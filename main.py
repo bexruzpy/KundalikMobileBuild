@@ -33,7 +33,7 @@ Builder.load_file("assets/Let.kv")
 
 # O'chiriladi
 ######################################
-# from kivy.core.window import Window
+from kivy.core.window import Window
 # Window.size = (400, 600)
 ######################################
 
