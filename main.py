@@ -17,7 +17,7 @@ from assets.database import DatabaseConnection
 import requests
 from datetime import datetime
 from threading import Thread
-# from kivy.clock import Clock
+from kivy.clock import Clock
 from functools import partial
 from assets.utils import get_last_seven_days
 from assets import kundalikcom_func
@@ -455,10 +455,10 @@ class KundalikCOMApp(App):
         request_permissions([Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE])
         self.database = DatabaseConnection()
         token = self.database.get_data("token")
+        Window.focus = True
         if token:
             self.root = RootWidget(page_name="home")
-            
-            Clock.schedule_once(lambda dt: self.data_population())
+            self.data_population()
         else:
             self.root = RootWidget(page_name="login")
         return self.root
