@@ -7,7 +7,7 @@ from kivy.graphics import Color, RoundedRectangle
 from kivy.lang import Builder
 
 
-ffrom jnius import autoclass
+from jnius import autoclass
 
 # Android kontekstini olish
 PythonActivity = autoclass('org.kivy.android.PythonActivity')
@@ -49,8 +49,8 @@ Builder.load_file("assets/Let.kv")
 
 # O'chiriladi
 ######################################
-from kivy.core.window import Window
-Window.size = (400, 600)
+# from kivy.core.window import Window
+# Window.size = (400, 600)
 ######################################
 
 class ActivePopup(Popup):
