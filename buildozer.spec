@@ -16,7 +16,7 @@ source.dir = .
 source.include_exts = py,png,jpg,kv,atlas,db,ttf
 
 # (list) List of inclusions using pattern matching
-source.include_patterns = fonts/*.ttf,icons/*.png
+#source.include_patterns = fonts/*.ttf,icons/*.png
 
 # (list) Source files to exclude (let empty to not exclude anything)
 #source.exclude_exts = spec
@@ -37,7 +37,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3, kivy==2.3.0,pytesseract,opencv-python,pillow,requests,numpy,bs4,pyjnius,sqlite3,webbrowser
+requirements = python3, kivy==2.1.0,webbrowser,pytesseract,opencv-python,pillow,requests,numpy,bs4,pyjnius,sqlite3
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -67,7 +67,7 @@ orientation = portrait
 osx.python_version = 3
 
 # Kivy version to use
-osx.kivy_version = 2.3.0
+osx.kivy_version = 2.1.0
 
 #
 # Android specific
