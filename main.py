@@ -6,12 +6,28 @@ from kivy.uix.popup import Popup
 from kivy.graphics import Color, RoundedRectangle
 from kivy.lang import Builder
 
-from kivy.utils import platform
-from android.permissions import request_permissions, Permission
 
-if platform == 'android':
-    request_permissions([Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE])
+ffrom jnius import autoclass
 
+# Android kontekstini olish
+PythonActivity = autoclass('org.kivy.android.PythonActivity')
+ContextCompat = autoclass('androidx.core.content.ContextCompat')
+ActivityCompat = autoclass('androidx.core.app.ActivityCompat')
+Manifest = autoclass('android.Manifest')
+
+# Ruxsat olish uchun kerakli fayl ruxsatlarini belgilash
+WRITE_EXTERNAL_STORAGE_PERMISSION = Manifest.permission.WRITE_EXTERNAL_STORAGE
+READ_EXTERNAL_STORAGE_PERMISSION = Manifest.permission.READ_EXTERNAL_STORAGE
+
+# Ruxsatni tekshirish
+def check_permissions():
+    if ContextCompat.checkSelfPermission(PythonActivity.mActivity, WRITE_EXTERNAL_STORAGE_PERMISSION) != 0:
+        ActivityCompat.requestPermissions(PythonActivity.mActivity, [WRITE_EXTERNAL_STORAGE_PERMISSION], 1)
+    if ContextCompat.checkSelfPermission(PythonActivity.mActivity, READ_EXTERNAL_STORAGE_PERMISSION) != 0:
+        ActivityCompat.requestPermissions(PythonActivity.mActivity, [READ_EXTERNAL_STORAGE_PERMISSION], 1)
+
+# Ruxsatni tekshirish uchun funktsiyani chaqiring
+check_permissions()
 
 from assets.database import DatabaseConnection
 import requests
