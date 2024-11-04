@@ -455,7 +455,7 @@ class KundalikCOMApp(App):
         request_permissions([Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE])
         self.database = DatabaseConnection()
         token = self.database.get_data("token")
-        Window.focus = True
+        Window.clearcolor = (1, 1, 1, 1)
         if token:
             self.root = RootWidget(page_name="home")
             self.data_population()
