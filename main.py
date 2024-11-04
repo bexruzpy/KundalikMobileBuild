@@ -6,11 +6,11 @@ from kivy.uix.popup import Popup
 from kivy.graphics import Color, RoundedRectangle
 from kivy.lang import Builder
 
-# from kivy.utils import platform
-# from android.permissions import request_permissions, Permission
+from kivy.utils import platform
+from android.permissions import request_permissions, Permission
 
-# if platform == 'android':
-#     request_permissions([Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE])
+if platform == 'android':
+    request_permissions([Permission.READ_EXTERNAL_STORAGE, Permission.WRITE_EXTERNAL_STORAGE])
 
 
 from assets.database import DatabaseConnection
